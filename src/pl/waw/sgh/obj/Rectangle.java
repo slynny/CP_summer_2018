@@ -1,3 +1,4 @@
+/*
 package pl.waw.sgh.obj;
 
 public class Rectangle {
@@ -46,3 +47,35 @@ public class Rectangle {
 // 2. protected   - also for inherited structure, packagewide + inheritance
 // 3. public      - doesn't matter where it is, for all packages, classes etc., the least strict
 // 4. private     - only access within the class, the most strict - !recommended!
+
+*/
+
+package pl.waw.sgh.obj;
+
+public class Rectangle {
+
+    private Double sideA = 0d;
+    private Double sideB = 0d;
+
+/*    public Rectangle() {
+        sideA = 5;
+        sideB = 7;
+    }*/
+
+    public Rectangle(double sideA, double sideB) {
+        setParams(sideA, sideB);
+/*
+        this.sideA = sideA;
+        this.sideB = sideB;
+*/
+    }
+
+    public void setParams(double a, double b) {
+        sideA = a;
+        sideB = b;
+    }
+
+    public double calcSurface() {
+        return sideA*sideB;
+    }
+}
