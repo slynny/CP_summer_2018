@@ -7,10 +7,12 @@ public abstract class AbstractTriangles {
     protected Double parC = 0d;
 
     public AbstractTriangles (double a, double b, double c) {
+
         setTParams(a, b, c);
     }
 
     public AbstractTriangles (double a) {
+
         setTEParams(a);
     }
 
@@ -29,6 +31,10 @@ public abstract class AbstractTriangles {
 
    public abstract double calcSurface();
 
-
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + " [parA=" + parA + ", parB=" + parB + ", parC=" + parC + "]";
+        //+ super.toString();
+    }
 }
 
