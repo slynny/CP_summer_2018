@@ -39,6 +39,11 @@ public class Circle extends Shape {
     }
 
     @Override
+    public String toString() {
+        return "My " + super.toString();
+    }
+
+    @Override
     public double calcSurface() {
         return Math.PI*Math.pow(parA,2);
     }
