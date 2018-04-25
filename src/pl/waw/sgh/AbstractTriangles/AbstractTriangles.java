@@ -7,17 +7,19 @@ public abstract class AbstractTriangles {
     protected Double parC = 0d;
 
     public AbstractTriangles (double a, double b, double c) {
-
-        setTParams(a, b, c);
+        setTSParams(a, b, c);
     }
 
     public AbstractTriangles (double a) {
-
         setTEParams(a);
     }
 
+    public AbstractTriangles (double a, double b) {
+        setTIParams(a, b);
+    }
 
-    public void setTParams(double a, double b, double c) {
+
+    public void setTSParams(double a, double b, double c) {
         parA = a;
         parB = b;
         parC = c;
@@ -27,6 +29,12 @@ public abstract class AbstractTriangles {
         parA = a;
         parB = a;
         parC = a;
+    }
+
+    public void setTIParams(double a, double b) {
+        parA = a;
+        parB = a;
+        parC = b;
     }
 
    public abstract double calcSurface();

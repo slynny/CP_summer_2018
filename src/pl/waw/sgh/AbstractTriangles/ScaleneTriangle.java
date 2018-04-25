@@ -1,8 +1,8 @@
 package pl.waw.sgh.AbstractTriangles;
 
-public class NormalTriangle extends AbstractTriangles {
+public class ScaleneTriangle extends AbstractTriangles {
 
-    public NormalTriangle(double a, double b, double c) {
+    public ScaleneTriangle(double a, double b, double c) {
         super(a,b,c);
     }
 

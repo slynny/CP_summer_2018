@@ -1,17 +1,17 @@
 package pl.waw.sgh.AbstractTriangles;
 
-import pl.waw.sgh.AbstractTriangles.NormalTriangle;
+import pl.waw.sgh.AbstractTriangles.ScaleneTriangle;
 import pl.waw.sgh.AbstractTriangles.EquilateralTriangle;
 
 public class PlayWithTriangles {
 
     public static void main(String[] args) {
 
-        NormalTriangle nt1 = new NormalTriangle(3,4, 5);
+        ScaleneTriangle st1 = new ScaleneTriangle(3,4, 5);
         // calls toString automatically
-        System.out.println(nt1);
+        System.out.println(st1);
         //System.out.println(nt1.toString());
-        System.out.println("Surface: " + nt1.calcSurface());
+        System.out.println("Surface: " + st1.calcSurface());
 
         System.out.println();
 
@@ -20,6 +20,14 @@ public class PlayWithTriangles {
         System.out.println(et1);
         //System.out.println(et1.toString());
         System.out.println("Surface: " + et1.calcSurface());
+
+        System.out.println();
+
+        IsoscelesTriangle it1 = new IsoscelesTriangle(5, 2);
+        // calls toString automatically
+        System.out.println(it1);
+        //System.out.println(et1.toString());
+        System.out.println("Surface: " + it1.calcSurface());
 
 
     }
