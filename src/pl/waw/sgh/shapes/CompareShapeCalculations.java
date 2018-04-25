@@ -29,6 +29,16 @@ public class CompareShapeCalculations {
             System.out.println(s.calcSurface());
         }
 
+        System.out.println();
+        System.out.println(shapeList);
+
+        shapeList.remove(s1);
+        shapeList.remove(1);
+        //shapeList.remove(0); i tak dalej
+
+        System.out.println();
+        System.out.println(shapeList);
+
 
     }
 }
