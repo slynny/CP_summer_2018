@@ -1,8 +1,8 @@
 package pl.waw.sgh.bank;
 
-        import java.math.BigDecimal;
-        import java.util.ArrayList;
-        import java.util.List;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Bank {
 
@@ -10,22 +10,13 @@ public class Bank {
 
     List<Account> accList = new ArrayList<>();
 
-
-
-
-    //this is called a sequence in databases
-    // -- storing the last ID
-
     private Integer lastCustID = 0;
 
     private Integer lastAccID = 0;
 
-    //factory pattern
-    //defining, calling a method that ....
-
     public Customer createCustomer(String firstName,
                                    String lastName,
-                                   String email) { //reference to a customer
+                                   String email) {
         Customer customer = new Customer(lastCustID++,firstName, lastName, email);
         custList.add(customer);
         return customer;
@@ -41,11 +32,22 @@ public class Bank {
         return account;
     }
 
+    public void transfer(Integer fromAccId, Integer toAccId, double amount) {
+
+
+    }
+
+    public Account findAccountById(Integer id) {
+        // iterate through the account list and return the account with a given id
+        return null;
+    }
+
+
     @Override
     public String toString() {
         return "Bank{" +
-                "custList=" + custList +
-                ", accList=" + accList +
+                "cust=" + custList +
+                "\nacc=" + accList +
                 '}';
     }
 }

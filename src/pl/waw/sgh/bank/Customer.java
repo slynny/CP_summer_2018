@@ -1,7 +1,4 @@
 package pl.waw.sgh.bank;
-// bins
-//POJO - plain old java object - structures that are basic, mostly to store data
-
 
 public class Customer {
 
@@ -13,21 +10,12 @@ public class Customer {
 
     private String email;
 
-    //gettter and setter methods
-    //taking from PRIVATE
-    // Generate --> getter, setter
-
-    // Generate --> constructor
     public Customer(Integer customerID, String firstName, String lastName, String email) {
         this.customerID = customerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
-
-
-    // Generate --> getter, setter
-
 
     public Integer getCustomerID() {
         return customerID;
@@ -61,14 +49,13 @@ public class Customer {
         this.email = email;
     }
 
-    // Generate --> toString
     @Override
     public String toString() {
         return "\nCustomer{" +
-                "customerID=" + customerID +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+                "" + customerID +
+                ", '" + firstName + '\'' +
+                ", '" + lastName + '\'' +
+                ", '" + email + '\'' +
+                "}";
     }
 }
