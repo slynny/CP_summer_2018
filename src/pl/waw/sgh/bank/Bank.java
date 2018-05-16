@@ -1,6 +1,7 @@
 package pl.waw.sgh.bank;
 
 import pl.waw.sgh.bank.exceptions.InvalidAmountException;
+import pl.waw.sgh.bank.exceptions.NonExistantAccountException;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Bank {
         return account;
     }
 
-    public void transfer(Integer fromAccId, Integer toAccId, double amount) throws InvalidAmountException{
+    public void transfer(Integer fromAccId, Integer toAccId, double amount) throws InvalidAmountException, NonExistantAccountException{
         Account fromAcc = findAccountById(fromAccId);
         Account toAcc = findAccountById(toAccId);
         fromAcc.charge(amount);
@@ -53,15 +54,15 @@ public class Bank {
     }
 */
 
-    public Account findAccountById(int id) {
+    public Account findAccountById(int id) throws NonExistantAccountException{
         // iterate through the account list and return the account with a given id
         for (Account acc : accList) {
             //if (id.equals(acc.getAccountID()))
             if (id==acc.getAccountID())
                 return acc;
         }
-
-        return null;
+        throw new NonExistantAccountException("Acc id: " + id + "doesn't exist");
+        //return null;
     }
 
 

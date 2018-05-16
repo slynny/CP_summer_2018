@@ -1,6 +1,8 @@
 package pl.waw.sgh.bank;
 
+import pl.waw.sgh.bank.exceptions.BankException;
 import pl.waw.sgh.bank.exceptions.InvalidAmountException;
+import pl.waw.sgh.bank.exceptions.NonExistantAccountException;
 
 public class PlayWithBank {
 
@@ -19,9 +21,28 @@ public class PlayWithBank {
         try {
             bank.transfer(0, 1, 170);
             System.out.println(bank);
-        } catch (InvalidAmountException e) {
+
+        } catch (BankException e) {
             System.out.println(e.getMessage());
         }
+
+
+        /* OR option 3. - catch all exceptions - recommended only in specific cases
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } */
+
+            /* OR option 2.
+        } catch (InvalidAmountException | NonExistantAccountException e) {
+            System.out.println(e.getMessage());
+        } */
+
+        /* OR option 1.
+        } catch (InvalidAmountException e) {
+            System.out.println(e.getMessage());
+        } catch (NonExistantAccountException e) {
+            System.out.println(e.getMessage());
+        }*/
 
 
 
