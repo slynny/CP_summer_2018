@@ -1,5 +1,7 @@
 package pl.waw.sgh.bank.ui;
 
+import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,11 +10,22 @@ import java.awt.event.ActionListener;
 public class FirstWindow {
 
     public static void main(String[] args) {
+
+        try {
+            UIManager.setLookAndFeel(WindowsLookAndFeel.class.getName());
+        } catch (ClassNotFoundException
+                | InstantiationException
+                | IllegalAccessException
+                | UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+
+
         JFrame myFrame = new JFrame("My Window");
         myFrame.setSize(400, 600);
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // allows to close the window
+        //myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // allows to close the window
         //myFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // changes visibility to false, so we do not see it anymore, but it is still working
-        //myFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // causes the object(window) to be disposed, but the application does not stop working
+        myFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // causes the object(window) to be disposed, but the application does not stop working
         myFrame.setLayout(new FlowLayout());
         //layout manager so the panels(etc) do not cover each other
 
