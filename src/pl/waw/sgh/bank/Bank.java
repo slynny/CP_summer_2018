@@ -1,6 +1,7 @@
 package pl.waw.sgh.bank;
 
 import pl.waw.sgh.bank.exceptions.InvalidAmountException;
+import pl.waw.sgh.bank.exceptions.NegativeAmountException;
 import pl.waw.sgh.bank.exceptions.NonExistantAccountException;
 
 import java.math.BigDecimal;
@@ -35,7 +36,7 @@ public class Bank {
         return account;
     }
 
-    public void transfer(Integer fromAccId, Integer toAccId, double amount) throws InvalidAmountException, NonExistantAccountException{
+    public void transfer(Integer fromAccId, Integer toAccId, double amount) throws InvalidAmountException, NonExistantAccountException, NegativeAmountException {
         Account fromAcc = findAccountById(fromAccId);
         Account toAcc = findAccountById(toAccId);
         fromAcc.charge(amount);
@@ -61,7 +62,7 @@ public class Bank {
             if (id==acc.getAccountID())
                 return acc;
         }
-        throw new NonExistantAccountException("Acc id: " + id + "doesn't exist");
+        throw new NonExistantAccountException("Account with id number: " + id + " doesn't exist");
         //return null;
     }
 

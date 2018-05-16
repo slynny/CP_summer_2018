@@ -1,6 +1,7 @@
 package pl.waw.sgh.bank;
 
 import pl.waw.sgh.bank.exceptions.InvalidAmountException;
+import pl.waw.sgh.bank.exceptions.NegativeAmountException;
 
 import java.math.BigDecimal;
 
@@ -20,20 +21,31 @@ public abstract class Account {
         this.customer = customer;
     }
 
-    public void deposit(double amount) {
+    public void deposit(double amount) throws NegativeAmountException {
         //balance.compareTo(BigDecimal.valueOf(amount))
         //balance.doubleValue()<amount
-
-        balance = balance.add(BigDecimal.valueOf(amount));
+        if (amount < 0) {
+            throw new NegativeAmountException(
+                    "You can't deposit negative amount");
+        } else {
+            balance = balance.add(BigDecimal.valueOf(amount));
+        }
     }
 
-    public void charge(double amount) throws InvalidAmountException {
-        if (balance.doubleValue()<amount)
+    public void charge(double amount) throws InvalidAmountException, NegativeAmountException {
+        if (balance.doubleValue() < amount) {
             throw new InvalidAmountException(
                     "Not enough money, you tried to charge: " + amount +
                             " only: " + balance + " available");
+        } else if (amount < 0) {
+            throw new NegativeAmountException(
+                    "You can't charge negative amount");
+    } else {
         balance = balance.subtract(BigDecimal.valueOf(amount));
     }
+
+}
+
 
 /*
     public int charge(double amount) {
