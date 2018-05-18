@@ -27,11 +27,57 @@ public class CustomerUI {
         newButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Customer newCust = bank.createCustomer("", "", "");
+                String fN = firstNameTextField.getText();
+                String lN = lastNameTextField.getText();
+                String e = textField1.getText();
+                Customer newCust = bank.createCustomer(fN, lN, e);
                 idTextField.setText(newCust.getCustomerID().toString());
             }
         });
+
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                bank.deleteCustomer(Integer.parseInt(idTextField.getText()));
+            }
+        });
+
+        prevButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvente) {
+                Integer id = Integer.parseInt(idTextField.getText());
+                Customer cust = bank.moveToPrevCust(id);
+                idTextField.setText(cust.getCustomerID().toString());
+                firstNameTextField.setText(cust.getFirstName());
+                lastNameTextField.setText(cust.getLastName());
+                textField1.setText(cust.getEmail());
+            }
+        });
+
+        nextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Integer id = Integer.parseInt(idTextField.getText());
+                Customer cust = bank.moveToNextCust(id);
+                idTextField.setText(cust.getCustomerID().toString());
+                firstNameTextField.setText(cust.getFirstName());
+                lastNameTextField.setText(cust.getLastName());
+                textField1.setText(cust.getEmail());
+            }
+        });
+
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Integer id = Integer.parseInt(idTextField.getText());
+                String fN = firstNameTextField.getText();
+                String lN = lastNameTextField.getText();
+                String e = textField1.getText();
+                bank.updateCustomer(id, fN, lN, e);
+            }
+        });
     }
+
 
     public static void main(String[] args) {
         JFrame customerFrame = new JFrame("Bank");

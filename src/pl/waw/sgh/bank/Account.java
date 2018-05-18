@@ -15,6 +15,8 @@ public abstract class Account {
 
     private String currency = "USD";
 
+    public Customer getCustomer() { return customer; }
+
     public Account(Integer accountID, BigDecimal balance, Customer customer) {
         this.accountID = accountID;
         this.balance = balance;
@@ -71,9 +73,8 @@ public abstract class Account {
         this.balance = balance;
     }*/
 
-    public Customer getCustomer() {
-        return customer;
-    }
+
+
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -96,5 +97,6 @@ public abstract class Account {
                 '}';
     }
 }
+
 
 //x

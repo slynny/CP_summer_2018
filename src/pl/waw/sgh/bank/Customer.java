@@ -17,9 +17,7 @@ public class Customer {
         this.email = email;
     }
 
-    public Integer getCustomerID() {
-        return customerID;
-    }
+    public Integer getCustomerID() { return customerID; }
 
     public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
